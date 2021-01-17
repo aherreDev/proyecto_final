@@ -1,0 +1,36 @@
+{
+  "name": "proyecto_final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "dev": "nodemon main.js 2+2+5-8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aherreDev/proyecto_final.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aherreDev/proyecto_final/issues"
+  },
+  "homepage": "https://github.com/aherreDev/proyecto_final#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "loadsh": "^0.0.4",
+    "lodash": "^4.17.20",
+    "mathjs-expression-parser": "^1.0.2",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^5.0.0"
+  }
+}
