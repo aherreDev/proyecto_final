@@ -1,12 +1,11 @@
-const Colors = require('colors');
+require('./modules/Calculator');
+const math = require('mathjs-expression-parser');
 
-// ? Helpers
-const { getParamByIndex, printSuccess } = require('./helpers/Console');
+const expr = '1-2*2+5';
 
-// ? Modules
-const Formula = require('./modules/Formula')._default;
+console.log('---------------')
 
-const expressionParam = getParamByIndex(0);
-const formula = new Formula(expressionParam);
+console.log('Results: \r')
+console.log(math.eval(expr, {}))
 
-printSuccess('The result was:', formula.result);
+console.log('---------------')
