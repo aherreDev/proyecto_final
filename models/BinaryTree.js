@@ -1,8 +1,36 @@
+// ? Models
 const Node = require('./Node')._default;
+const Expression = require('./Expression')._default;
+
+// ? Helpers
+const { isInstanceOf } = require('../helpers/General');
+const { printInfo } = require("../helpers/Console");
 
 class Tree {
-  constructor() {
+    preOrderText = [];
+    postOrderText = [];
+
+  constructor(expression) {
+    if(!isInstanceOf(expression, Expression)) throw new Error('A  mathematical expressions is required');
+
     this.root = null;
+    this.expression = expression;
+
+    this.loadNodes();
+  }
+
+  loadNodes(){
+      this.expression.toArray().forEach((c,i) =>{
+          this.addRecursive(c);
+      })
+
+      printInfo('PreOrder', 'results:');
+      this.preOrder();
+      console.log(this.preOrderText.join(', ') + '\n');
+
+      printInfo('PostOrder', 'results:');
+      this.postOrder();
+      console.log(this.postOrderText.join(', ') + '\n');
   }
 
   isEmpty() {
@@ -57,22 +85,26 @@ class Tree {
     }
   }
 
-  preOrder(node = this.root) {
+  preOrder(node = this.root, firstAttemp) {
+    if(firstAttemp) this.preOrderText = [];
+
     if (!node) {
       return;
     }
-    console.log(node.value);
+    this.preOrderText.push(node.value);
     this.preOrder(node.left);
     this.preOrder(node.right);
   }
 
-  postOrder(node = this.root) {
+  postOrder(node = this.root, firstAttemp) {
+    if(firstAttemp) this.postOrderText = [];
+
     if (!node) {
       return;
     }
     this.postOrder(node.left);
     this.postOrder(node.right);
-    console.log(node.value);
+    this.postOrderText.push(node.value)
   }
 }
 

@@ -1,11 +1,18 @@
-require('./modules/Calculator');
-const math = require('mathjs-expression-parser');
+// ? Helpers
+const { getParamByIndex } = require('./helpers/Console');
 
-const expr = '1-2*2+5';
+// ? Models
+const Expression = require('./models/Expression')._default;
 
-console.log('---------------')
+// ? Modules
+const Calculator = require('./modules/Calculator')._default;
 
-console.log('Results: \r')
-console.log(math.eval(expr, {}))
+// ? Main function
+const main = () =>{
+    // NOTE: Uou can update the math expression only updating the next line or passing a param on the CLI (see the readme.md)
+    const input_expression = getParamByIndex(0) ? getParamByIndex(0) : '2+2';
+    new Calculator(new Expression(input_expression));
+}
 
-console.log('---------------')
+// * Run the project code
+main();

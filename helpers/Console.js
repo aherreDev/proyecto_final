@@ -18,4 +18,9 @@ module.exports = {
   console.log(
     `${Colors.bgGreen("SUCCESS:")}  ${Colors.green(sucessText)}  ${commonText}`
   ),
+  // ? Print Info with colors
+  printInfo: (infoText, commonText) =>
+  console.log(
+    `${Colors.bgBlue("INFO:")}  ${Colors.blue(infoText)}  ${commonText}`
+  ),
 };
